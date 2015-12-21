@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Authenticating with Blitzen &mdash; Blitzen December 21st, 2015 documentation</title>
+    <title>Webhooks &mdash; Blitzen December 21st, 2015 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Blitzen December 21st, 2015 documentation" href="index.html" />
-    <link rel="next" title="}" href="webhooks.html" />
-    <link rel="prev" title="Welcome to Blitzen’s documentation!" href="index.html" />
+    <link rel="prev" title="Authenticating with Blitzen" href="authentication.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -38,18 +37,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="authenticating-with-blitzen">
-<h1>Authenticating with Blitzen<a class="headerlink" href="#authenticating-with-blitzen" title="Permalink to this headline">¶</a></h1>
-<p>Blitzen uses OAuth2.0 specification.  You must have an account within blitzen for it to work.</p>
-<p>To start make an account if you haven&#8217;t already at <a class="reference external" href="https://blitzen.com/signup">https://blitzen.com/signup</a></p>
-<p>Once you have an account associated with blitzen, we can start the authorization flow.</p>
-<p>Login with this url endpoint:
-<a class="reference external" href="https://blitzen.com/api/v1/auth/login/">https://blitzen.com/api/v1/auth/login/</a></p>
-<p>This will redirect you to our api portal.  If you&#8217;re already logged in, the api portal is at this location:
-<a class="reference external" href="https://blitzen.com/api/v1/o/applications/">https://blitzen.com/api/v1/o/applications/</a></p>
-<p>Once the application is made, you can start the authentication flow from this authorization url:
-<a class="reference external" href="https://blitzen.com/api/v1/o/token/">https://blitzen.com/api/v1/o/token/</a></p>
-<p>You can read more on authentication from django-oauth-toolkit from here: <a class="reference external" href="https://django-oauth-toolkit.readthedocs.org/en/latest/">https://django-oauth-toolkit.readthedocs.org/en/latest/</a></p>
+  <div class="section" id="webhooks">
+<h1>Webhooks<a class="headerlink" href="#webhooks" title="Permalink to this headline">¶</a></h1>
+<p>When a form is posted from a webhook the format will be as follows:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;__form_hash_id__&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;__field_hash_id__&quot;</span><span class="o">:</span> <span class="s2">&quot;Field Data&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;files&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;__field_hash_id__&quot;</span><span class="o">:</span> <span class="s2">&quot;S3 Bucket Link&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can get your form hash_id and the layout of the entire form from the following links:</p>
+<p>For a list of forms, the endpoint is:
+<a class="reference external" href="https://(your_subdomain).blitzen.com/api/v1/forms/">https://(your_subdomain).blitzen.com/api/v1/forms/</a></p>
+<p>If you want information about a forms fields, like labels and other configuration, the endpoint is:
+<a class="reference external" href="https://(your_subdomain).blitzen.com/api/v1/forms/__form_hash_id__/fields/">https://(your_subdomain).blitzen.com/api/v1/forms/__form_hash_id__/fields/</a></p>
+<p>You can post the webhook in 2 different formats, which are <code class="docutils literal"><span class="pre">applicaiton/json</span></code> and <code class="docutils literal"><span class="pre">application/x-www-form-encoded</span></code></p>
+<p><code class="docutils literal"><span class="pre">application/json</span></code> will post the data within the body of the request</p>
+<p><code class="docutils literal"><span class="pre">application/x-www-form-encoded</span></code> will append all the data to the url</p>
 </div>
 
 
@@ -61,15 +68,14 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Blitzen&#8217;s documentation!</a></li>
-      <li>Next: <a href="webhooks.html" title="next chapter">}</a></li>
+      <li>Previous: <a href="authentication.html" title="previous chapter">Authenticating with Blitzen</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/authentication.txt"
+      <li><a href="_sources/webhooks.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -98,7 +104,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
       
       |
-      <a href="_sources/authentication.txt"
+      <a href="_sources/webhooks.txt"
           rel="nofollow">Page source</a>
     </div>
 
