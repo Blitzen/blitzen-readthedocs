@@ -1,0 +1,1 @@
+Search.setIndex({envversion:47,filenames:["authentication","index"],objects:{},objnames:{},objtypes:{},terms:{blitzen:[],content:1,get:0,index:1,modul:1,oauth2:0,page:1,search:1,specif:0,start:0},titles:["Authenticating with Blitzen","Welcome to Blitzen&#8217;s documentation!"],titleterms:{authent:0,blitzen:[0,1],document:1,indic:1,tabl:1,welcom:1}})
