@@ -6,6 +6,8 @@
 Welcome to Blitzen's documentation!
 ===================================
 
+Currently this documentation is under construction.
+
 Contents:
 
 .. toctree::
