@@ -1,109 +1,261 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Authenticating with Blitzen &mdash; Blitzen December 21st, 2015 documentation</title>
-    
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     'December 21st, 2015',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Blitzen December 21st, 2015 documentation" href="index.html" />
-    <link rel="next" title="}" href="webhooks.html" />
-    <link rel="prev" title="Welcome to Blitzen’s documentation!" href="index.html" />
-   
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Authenticating with Blitzen &mdash; Blitzen December 21st, 2015 documentation</title>
+  
 
-  </head>
-  <body role="document">  
+  
+  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Blitzen December 21st, 2015 documentation" href="index.html"/>
+        <link rel="next" title="Webhooks" href="webhooks.html"/>
+        <link rel="prev" title="Welcome to Blitzen’s documentation!" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Blitzen
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.38
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Authenticating with Blitzen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-account">Create Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login">Login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-oauth-client-application">Create Oauth Client Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#obtaining-an-access-token">Obtaining an access token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access-token-request-using-curl">Access token request using cURL:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-post">Example post:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-response">Example response:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Blitzen</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Authenticating with Blitzen</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/authentication.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="authenticating-with-blitzen">
-<h1>Authenticating with Blitzen<a class="headerlink" href="#authenticating-with-blitzen" title="Permalink to this headline">¶</a></h1>
+<span id="authenticating-with-blitzen"></span><h1>Authenticating with Blitzen<a class="headerlink" href="#authenticating-with-blitzen" title="Permalink to this headline">¶</a></h1>
 <p>Blitzen uses OAuth2.0 specification.  You must have an account within blitzen for it to work.</p>
+<div class="section" id="create-account">
+<span id="create-account"></span><h2>Create Account<a class="headerlink" href="#create-account" title="Permalink to this headline">¶</a></h2>
 <p>To start make an account if you haven&#8217;t already at <a class="reference external" href="https://blitzen.com/signup">https://blitzen.com/signup</a></p>
-<p>Once you have an account associated with blitzen, we can start the authorization flow.</p>
+</div>
+<div class="section" id="login">
+<span id="login"></span><h2>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h2>
 <p>Login with this url endpoint:
 <a class="reference external" href="https://blitzen.com/api/v1/auth/login/">https://blitzen.com/api/v1/auth/login/</a></p>
+</div>
+<div class="section" id="create-oauth-client-application">
+<span id="create-oauth-client-application"></span><h2>Create Oauth Client Application<a class="headerlink" href="#create-oauth-client-application" title="Permalink to this headline">¶</a></h2>
 <p>This will redirect you to our api portal.  If you&#8217;re already logged in, the api portal is at this location:
 <a class="reference external" href="https://blitzen.com/api/v1/o/applications/">https://blitzen.com/api/v1/o/applications/</a></p>
+<p>Set the <code class="docutils literal"><span class="pre">Client</span> <span class="pre">Type</span></code> to <code class="docutils literal"><span class="pre">public</span></code></p>
+<p>Set the <code class="docutils literal"><span class="pre">Authorization</span> <span class="pre">Grant</span> <span class="pre">Type</span></code> to <code class="docutils literal"><span class="pre">password</span></code></p>
+<p>A redirect URI is optional.</p>
+</div>
+<div class="section" id="obtaining-an-access-token">
+<span id="obtaining-an-access-token"></span><h2>Obtaining an access token<a class="headerlink" href="#obtaining-an-access-token" title="Permalink to this headline">¶</a></h2>
 <p>Once the application is made, you can start the authentication flow from this authorization url:
-<a class="reference external" href="https://blitzen.com/api/v1/o/token/">https://blitzen.com/api/v1/o/token/</a></p>
-<p>You can read more on authentication from django-oauth-toolkit from here: <a class="reference external" href="https://django-oauth-toolkit.readthedocs.org/en/latest/">https://django-oauth-toolkit.readthedocs.org/en/latest/</a></p>
+<code class="docutils literal"><span class="pre">https://blitzen.com/api/v1/o/token/</span></code></p>
+<div class="section" id="access-token-request-using-curl">
+<span id="access-token-request-using-curl"></span><h3>Access token request using cURL:<a class="headerlink" href="#access-token-request-using-curl" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="example-post">
+<span id="example-post"></span><h4>Example post:<a class="headerlink" href="#example-post" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>$ curl -X POST -d <span class="s2">&quot;client_id=HJZ12WYAlG32DxXFyvD1ACgPgcdkg9E4DpcYFImOZ&amp;amp;client_secret=ACja8bh12fsjFhVOEX8B3flcGsdfI77mao0zi55DgtrN4RGGmD5RQVMkw48TYhTOew33wSKiZ4W6dnqJoqE2nR2GbDxsejYUZ9wM389T6y7b7bORpOKI2Igl3c9w8zBDDpG&amp;amp;grant_type=password&amp;amp;username=someuser@gmail.com&amp;amp;password=somepassword&quot;</span> http://localhost:8000/api/v1/o/token/
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-response">
+<span id="example-response"></span><h4>Example response:<a class="headerlink" href="#example-response" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;refresh_token&quot;</span>: <span class="s2">&quot;tp8zs1Ivc2mPkkYaHJ5ZHr6NP8wEOj&quot;</span>, 
+  <span class="s2">&quot;token_type&quot;</span>: <span class="s2">&quot;Bearer&quot;</span>, 
+  <span class="s2">&quot;access_token&quot;</span>: <span class="s2">&quot;SL2EOuq21Ac1xtjjZUTLPNqa5xsWmF&quot;</span>, 
+  <span class="s2">&quot;expires_in&quot;</span>: 36000, 
+  <span class="s2">&quot;scope&quot;</span>: <span class="s2">&quot;read forms write&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>You can read more on authentication from django-oauth-toolkit from here: https://django-oauth-toolkit.readthedocs.org/en/latest/</p>
+</div>
+</div>
+</div>
 </div>
 
 
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Blitzen&#8217;s documentation!</a></li>
-      <li>Next: <a href="webhooks.html" title="next chapter">}</a></li>
-  </ul></li>
-</ul>
-</div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/authentication.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="webhooks.html" class="btn btn-neutral float-right" title="Webhooks" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Blitzen’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Jordan Clark, Duncan McDowell.
+
     </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2015, Jordan Clark, Duncan McDowell.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
-      
-      |
-      <a href="_sources/authentication.txt"
-          rel="nofollow">Page source</a>
-    </div>
 
-    
+    </section>
 
-    
-  </body>
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'December 21st, 2015',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>

@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Blitzen December 21st, 2015 documentation</title>
+  <title>Authenticating with Blitzen &mdash; Blitzen December 21st, 2015 documentation</title>
   
 
   
@@ -105,7 +104,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -113,9 +112,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li>Authenticating with Blitzen</li>
       <li class="wy-breadcrumbs-aside">
         
+          
+            <a href="_sources/authentication.old.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -125,11 +126,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="authenticating-with-blitzen">
+<h1>Authenticating with Blitzen<a class="headerlink" href="#authenticating-with-blitzen" title="Permalink to this headline">¶</a></h1>
+<p>Blitzen uses OAuth2.0 specification.  You must have an account within blitzen for it to work.</p>
+<p>To start make an account if you haven&#8217;t already at <a class="reference external" href="https://blitzen.com/signup">https://blitzen.com/signup</a></p>
+<p>Once you have an account associated with blitzen, we can start the authorization flow.</p>
+<p>Login with this url endpoint:
+<a class="reference external" href="https://blitzen.com/api/v1/auth/login/">https://blitzen.com/api/v1/auth/login/</a></p>
+<p>This will redirect you to our api portal.  If you&#8217;re already logged in, the api portal is at this location:
+<a class="reference external" href="https://blitzen.com/api/v1/o/applications/">https://blitzen.com/api/v1/o/applications/</a></p>
+<p>Once the application is made, you can start the authentication flow from this authorization url:
+<a class="reference external" href="https://blitzen.com/api/v1/o/token/">https://blitzen.com/api/v1/o/token/</a></p>
+<p>You can read more on authentication from django-oauth-toolkit from here: <a class="reference external" href="https://django-oauth-toolkit.readthedocs.org/en/latest/">https://django-oauth-toolkit.readthedocs.org/en/latest/</a></p>
 </div>
 
 
