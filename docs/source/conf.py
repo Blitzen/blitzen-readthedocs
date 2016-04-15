@@ -44,7 +44,10 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Blitzen'
-copyright = str(datetime.datetime.now().year) + ', Blitzen'
+if datetime:
+    copyright = str(datetime.datetime.now().year) + ', Blitzen'
+else: 
+  copyright = '2016, Blitzen'
 author = 'Jordan Clark, Duncan McDowell'
 
 # The version info for the project you're documenting, acts as replacement for
