@@ -6,12 +6,14 @@ The primary use-case for using this API is to dynamically change field values ba
 
 ## Usage:
 
-##### Find the iframe element:
+###### Find the iframe element:
 `var el = document.getElementById("e15fe69d2b41a3932a37508ec3ba96");`
+
 Where `getElementById` is referencing the id of the iframe element
 
-##### Send a message to populate the form field:
+###### Send a message to populate the form field:
 `el.contentWindow.postMessage({'fieldId':'48891e6075903a85af0e9c506f8810', 'fieldValue':'hello world!'}, '*');`
+
 Where `fieldId` is the `field-id` property on the DOM input element of the field you want to populate, and `fieldValue` is the string you want to enter.
 
 ## Form Field Rules
