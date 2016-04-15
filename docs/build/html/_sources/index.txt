@@ -15,3 +15,4 @@ Contents:
 
    authentication
    webhooks
+   fieldapi

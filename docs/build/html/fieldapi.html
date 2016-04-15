@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Javascript Form Field API &mdash; Blitzen April 15, 2016 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Blitzen April 15, 2016 documentation" href="index.html"/>
+        <link rel="prev" title="Webhooks" href="webhooks.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Blitzen
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.80
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">Authenticating with Blitzen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Javascript Form Field API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#find-the-iframe-element">Find the iframe element:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-a-message-to-populate-the-form-field">Send a message to populate the form field:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#form-field-rules">Form Field Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Blitzen</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Javascript Form Field API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/fieldapi.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="javascript-form-field-api">
+<span id="javascript-form-field-api"></span><h1>Javascript Form Field API<a class="headerlink" href="#javascript-form-field-api" title="Permalink to this headline">¶</a></h1>
+<p>Using javascript, you can communicate with a Blitzen form using the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">window.postMessage</a> method.</p>
+<p>The primary use-case for using this API is to dynamically change field values based on user interactions or events on your own website or application. In many situations, you may want to use a <a class="reference external" href="http://help.blitzen.com/article/94-how-to-use-query-parameters">query parameter</a> in order to pre-populate a form field. This works well unless you want the ability to change the query parameter on the fly. Attempting to use dynamic query parameters will result in the form reloading which can be undesireable for a number of reasons. In order to alleviate the issues that come with pseudo-dynamic query parameters, we provide a postMessage method to provide a much cleaner implementation.</p>
+<div class="section" id="usage">
+<span id="usage"></span><h2>Usage:<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="find-the-iframe-element">
+<span id="find-the-iframe-element"></span><h3>Find the iframe element:<a class="headerlink" href="#find-the-iframe-element" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">var</span> <span class="pre">el</span> <span class="pre">=</span> <span class="pre">document.getElementById(&quot;e15fe69d2b41a3932a37508ec3ba96&quot;);</span></code></p>
+<p>Where <code class="docutils literal"><span class="pre">getElementById</span></code> is referencing the id of the iframe element</p>
+</div>
+<div class="section" id="send-a-message-to-populate-the-form-field">
+<span id="send-a-message-to-populate-the-form-field"></span><h3>Send a message to populate the form field:<a class="headerlink" href="#send-a-message-to-populate-the-form-field" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">el.contentWindow.postMessage({'fieldId':'48891e6075903a85af0e9c506f8810',</span> <span class="pre">'fieldValue':'hello</span> <span class="pre">world!'},</span> <span class="pre">'*');</span></code></p>
+<p>Where <code class="docutils literal"><span class="pre">fieldId</span></code> is the <code class="docutils literal"><span class="pre">field-id</span></code> property on the DOM input element of the field you want to populate, and <code class="docutils literal"><span class="pre">fieldValue</span></code> is the string you want to enter.</p>
+</div>
+</div>
+<div class="section" id="form-field-rules">
+<span id="form-field-rules"></span><h2>Form Field Rules<a class="headerlink" href="#form-field-rules" title="Permalink to this headline">¶</a></h2>
+<p>Form field rules will be updated as soon as the postMessage is successfully fired.</p>
+</div>
+<div class="section" id="limitations">
+<span id="limitations"></span><h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>Currently this feature is only intended to be used with string fields (single line text, paragraph, email, website, etc.).</p>
+<p>Warnings will be supplied if you have provided the wrong <code class="docutils literal"><span class="pre">fieldId</span></code> or if the <code class="docutils literal"><span class="pre">fieldValue</span></code> is blank.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="webhooks.html" class="btn btn-neutral" title="Webhooks" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Jordan Clark, Duncan McDowell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'April 15, 2016',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
